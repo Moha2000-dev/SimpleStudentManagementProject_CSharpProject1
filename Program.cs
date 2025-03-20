@@ -64,27 +64,63 @@
                 sum += studentMarks[i];
             }
             double average = sum / studentCount;
-            Console.WriteLine("Average Marks: " + average);
+            Console.WriteLine("Average Marks: " + Math.Round(average,2));
         }
 
         static void getmax()
         {
             double max = studentMarks[0];
+            string name = studentNames[0];
             for (int i = 0; i < studentCount; i++)
             {
                 if (studentMarks[i] > max)
                 {
                     max = studentMarks[i];
+                    name = studentNames[i];
+
                 }
             }
-            Console.WriteLine("Maximum Marks: " + max);
+            Console.WriteLine("Maximum Marks: " + max+" and he is : "+name);
         }
 
-        static void sortStudents () { 
-        
-        
-        
+        static void studentSort()
+        {
+            for (int i = 0; i < studentCount; i++)
+            {
+                for (int j = i + 1; j < studentCount; j++)
+                {
+                    if (studentMarks[i] > studentMarks[j])
+                    {
+                        double temp = studentMarks[i];
+                        studentMarks[i] = studentMarks[j];
+                        studentMarks[j] = temp;
+                        string tempName = studentNames[i];
+                        studentNames[i] = studentNames[j];
+                        studentNames[j] = tempName;
+                        int tempAge = age[i];
+                        age[i] = age[j];
+                        age[j] = tempAge;
+                        DateTime tempDate = dates[i];
+                        dates[i] = dates[j];
+                        dates[j] = tempDate;
+                    }
+                }
+            }
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Student Name: " + studentNames[i]);
+                Console.WriteLine("Student Marks: " + studentMarks[i]);
+                Console.WriteLine("Student Age: " + age[i]);
+                Console.WriteLine("Date: " + dates[i]);
+            }
+
+
+            
         }
+        
+
+
+        static void deleteStudent() { 
 
 
         static void Main(string[] args)
