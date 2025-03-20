@@ -7,12 +7,61 @@
         static int studentCount = 0;
         static int[] age = new int[10];
         static DateTime[] dates  = new DateTime[10];
-      
 
-   
+
+        static void AddStudent()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Enter Student Name: ");
+                studentNames[i] = Console.ReadLine();
+                Console.WriteLine("Enter Student Marks: ");
+                studentMarks[i] = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Student Age: ");
+                age[i] = int.Parse(Console.ReadLine());
+                dates[i] = DateTime.Now;
+                studentCount++;
+                Console.WriteLine("Student Added Successfully");
+                Console.WriteLine("Do you want to add more students? (yes/no)");
+                string choice = Console.ReadLine();
+                if (choice == "no")
+                {
+                    break;
+                }
+            }
+        }
+
+        static void ViewStudents()
+        {
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Student Name: " + studentNames[i]);
+                Console.WriteLine("Student Marks: " + studentMarks[i]);
+                Console.WriteLine("Student Age: " + age[i]);
+                Console.WriteLine("Date: " + dates[i]);
+            }
+        } 
+        static void FindStudent()
+        {
+            Console.WriteLine("Enter Student Name: ");
+            string name = Console.ReadLine();
+            for (int i = 0; i < studentCount; i++)
+            {
+                if (studentNames[i] == name)
+                {
+                    Console.WriteLine("Student Name: " + studentNames[i]);
+                    Console.WriteLine("Student Marks: " + studentMarks[i]);
+                    Console.WriteLine("Student Age: " + age[i]);
+                    Console.WriteLine("Date: " + dates[i]);
+                }
+            }
+        }
+        
         static void Main(string[] args)
         {
-           
+         AddStudent();
+         ViewStudents();
+
         }
     }
 }
