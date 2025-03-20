@@ -117,16 +117,64 @@
 
             
         }
-        
 
 
-        static void deleteStudent() { 
+
+        static void deleteStudentandshift() {
+            for(int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Student Name: " + studentNames[i]);
+                Console.WriteLine("Student Marks: " + studentMarks[i]);
+                Console.WriteLine("Student Age: " + age[i]);
+                Console.WriteLine("Date: " + dates[i]);
+            }
+            Console.WriteLine("Enter Student Name to delete: ");
+            string name = Console.ReadLine().ToLower();
+            for (int i = 0; i < studentCount; i++)
+            {
+                if (studentNames[i] == name)
+                {
+                    for (int j = i; j < studentCount - 1; j++)
+                    {
+                        studentNames[j] = studentNames[j + 1];
+                        studentMarks[j] = studentMarks[j + 1];
+                        age[j] = age[j + 1];
+                        dates[j] = dates[j + 1];
+                    }
+                    studentCount--;
+                    Console.WriteLine("Student Deleted Successfully");
+                    break;
+                }
+            }
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Student Name: " + studentNames[i]);
+                Console.WriteLine("Student Marks: " + studentMarks[i]);
+                Console.WriteLine("Student Age: " + age[i]);
+                Console.WriteLine("Date: " + dates[i]);
+                Console.WriteLine("-----------------------------------");
+            }
+
+
+
+
+
+
+        }
 
 
         static void Main(string[] args)
         {
          AddStudent();
          ViewStudents();
+         FindStudent();
+         getaverage();
+         getmax();
+         studentSort();
+         deleteStudentandshift();
+
+
+
 
         }
     }
