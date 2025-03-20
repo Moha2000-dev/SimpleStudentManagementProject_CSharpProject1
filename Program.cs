@@ -19,8 +19,18 @@
                 studentMarks[i] = double.Parse(Console.ReadLine());
                 Console.WriteLine("Enter Student Age: ");
                 age[i] = int.Parse(Console.ReadLine());
+                if (age[i] > 21)
+                {
+                    Console.WriteLine("Student Age should be greater than 18");
+                    break;
+                }
                 dates[i] = DateTime.Now;
                 studentCount++;
+                if (i > studentCount) {
+                    Console.WriteLine("out of range");
+                    break;
+                
+                }
                 Console.WriteLine("Student Added Successfully");
                 Console.WriteLine("Do you want to add more students? (yes/no)");
                 string choice = Console.ReadLine();
