@@ -19,7 +19,7 @@
                 studentMarks[i] = double.Parse(Console.ReadLine());
                 Console.WriteLine("Enter Student Age: ");
                 age[i] = int.Parse(Console.ReadLine());
-                if (age[i] > 21)
+                if (age[i] < 21)
                 {
                     Console.WriteLine("Student Age should be greater than 18");
                     break;
@@ -175,17 +175,61 @@
 
         static void Main(string[] args)
         {
-         AddStudent();
-         ViewStudents();
-         FindStudent();
-         getaverage();
-         getmax();
-         studentSort();
-         deleteStudentandshift();
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("1. Add Student");
+                Console.WriteLine("2. View Students");
+                Console.WriteLine("3. Find Student");
+                Console.WriteLine("4. Get Average Marks");
+                Console.WriteLine("5. Get Maximum Marks");
+                Console.WriteLine("6. Sort Students");
+                Console.WriteLine("7. Delete Student");
+                Console.WriteLine("8. Exit");
+                Console.WriteLine("Enter your choice: ");
+                int choice = int.Parse(Console.ReadLine());
+
+
+                switch (choice)
+                {
+
+                    case 1:
+                        AddStudent();
+                        break;
+                    case 2:
+                        ViewStudents();
+                        break;
+                    case 3:
+                        FindStudent();
+                        break;
+                    case 4:
+                        getaverage();
+                        break;
+                    case 5:
+                        getmax();
+                        break;
+                    case 6:
+                        studentSort();
+                        break;
+                    case 7:
+                        deleteStudentandshift();
+                        break;
+                    case 8:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice");
+                        break;
+                }
+
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadLine();
+
+            }
 
 
 
 
-        }
+            }
     }
 }
